@@ -25,14 +25,14 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		UiObject news = new UiObject(new UiSelector()
 				.className("android.widget.LinearLayout").instance(0)
 				.childSelector(new UiSelector().text("NEWS")));
-		Utils.click(news);
+		assertTrue("News button is not here", Utils.click(news));
 
 		sleep(1000);
 
 		// Update the news feed
 		UiScrollable list = new UiScrollable(
 				new UiSelector().resourceId(ID_SHAZ_NEWS_FEED));
-		Utils.scrollBackward(list);
+		assertTrue("Cannot update the news feed", Utils.scrollBackward(list));
 
 		sleep(3000);
 	}
@@ -42,12 +42,12 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		UiObject tagging = new UiObject(new UiSelector()
 				.className("android.widget.LinearLayout").instance(0)
 				.childSelector(new UiSelector().text("TAGGING")));
-		Utils.click(tagging);
+		assertTrue("Tagging button is not here", Utils.click(tagging));
 
 		sleep(1000);
 
 		// Click on the Shazam button
-		Utils.click(ID_SHAZ_TAGGING);
+		assertTrue("Cannot shazam a song :'(", Utils.click(ID_SHAZ_TAGGING));
 
 		sleep(15000);
 	}
