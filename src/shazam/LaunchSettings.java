@@ -19,7 +19,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	}
 
 	private void fetchNews() {
-		sleep(1000);
+		sleep(2000);
 
 		// Click on "NEWS" button
 		UiObject news = new UiObject(new UiSelector()
@@ -30,9 +30,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		sleep(1000);
 
 		// Update the news feed
-		UiScrollable list = new UiScrollable(
-				new UiSelector().resourceId(ID_SHAZ_NEWS_FEED));
-		assertTrue("Cannot update the news feed", Utils.scrollBackward(list));
+		UiScrollable list = Utils.getScrollableWithId(ID_SHAZ_NEWS_FEED);
+		Utils.scrollBackward(list);
 
 		sleep(3000);
 	}
