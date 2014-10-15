@@ -16,6 +16,12 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	private void shazamIt() {
 		fetchNews();
 		recognizeIt();
+		UiObject mainMenu = Utils
+				.getObjectWithDescription("MY TAGS, Navigate up");
+		if (mainMenu.exists()) {
+			Utils.click(mainMenu);
+			sleep(2000);
+		}
 	}
 
 	private void fetchNews() {
@@ -48,7 +54,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		// Click on the Shazam button
 		assertTrue("Cannot shazam a song :'(", Utils.click(ID_SHAZ_TAGGING));
 
-		sleep(15000);
+		sleep(25000);
 	}
 
 	public void testDemo() throws UiObjectNotFoundException {
