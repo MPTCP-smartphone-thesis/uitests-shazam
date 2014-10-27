@@ -60,9 +60,11 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Shazam", "com.shazam.android"));
-		while (true) {
+		Utils.launchTcpdump("shazam", 900);
+		for (int i = 0; i < 8; i++) {
 			shazamIt();
 		}
+		Utils.killTcpdump();
 	}
 
 }
