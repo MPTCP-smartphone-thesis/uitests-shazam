@@ -52,7 +52,10 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		sleep(1000);
 
 		// Click on the Shazam button
-		assertTrue("Cannot shazam a song :'(", Utils.click(ID_SHAZ_TAGGING));
+		if (!Utils.click(ID_SHAZ_TAGGING)) {
+			System.out.println("Cannot shazam a song :'(");
+			getUiDevice().click(550, 900);
+		}
 
 		sleep(25000);
 	}
