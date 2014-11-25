@@ -54,7 +54,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		// Click on the Shazam button
 		if (!Utils.click(ID_SHAZ_TAGGING)) {
 			System.out.println("Cannot shazam a song :'(");
-			getUiDevice().click(550);
+			getUiDevice().click(550, 900);
 		}
 
 		sleep(25000);
@@ -63,11 +63,16 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Shazam", "com.shazam.android"));
-		Utils.launchTcpdump("shazam");
+		String iface = getParams().getString("iface");
+		if (iface != null) {
+			Utils.launchTcpdump("shazam", iface);
+		}
 		for (int i = 0; i < 8; i++) {
 			shazamIt();
 		}
-		Utils.killTcpdump();
+		if (iface != null) {
+			Utils.killTcpdump();
+		}
 	}
 
 }
