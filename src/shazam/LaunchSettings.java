@@ -10,8 +10,9 @@ import com.android.uiautomator.testrunner.UiAutomatorTestCase;
 
 public class LaunchSettings extends UiAutomatorTestCase {
 
-	private static String ID_SHAZ_TAGGING = "com.shazam.android:id/tagging_place_holder";
-	private static String ID_SHAZ_NEWS_FEED = "com.shazam.android:id/news_feed_list";
+	private static final String ID_SHAZ_TAGGING = "com.shazam.android:id/tagging_place_holder";
+	private static final String ID_SHAZ_NEWS_FEED = "com.shazam.android:id/news_feed_list";
+	private static final int NB_TIMES = 2;
 
 	private void shazamIt() {
 		fetchNews();
@@ -57,7 +58,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			getUiDevice().click(550, 900);
 		}
 
-		sleep(25000);
+		sleep(20000);
 	}
 
 	public void testDemo() throws UiObjectNotFoundException {
@@ -67,7 +68,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		if (iface != null) {
 			Utils.launchTcpdump("shazam", iface);
 		}
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < NB_TIMES; i++) {
 			shazamIt();
 		}
 		if (iface != null) {
