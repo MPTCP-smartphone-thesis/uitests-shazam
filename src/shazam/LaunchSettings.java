@@ -64,15 +64,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Shazam", "com.shazam.android"));
-		String iface = getParams().getString("iface");
-		if (iface != null) {
-			Utils.launchTcpdump("shazam", iface);
-		}
 		for (int i = 0; i < NB_TIMES; i++) {
 			shazamIt();
-		}
-		if (iface != null) {
-			Utils.killTcpdump();
 		}
 	}
 
