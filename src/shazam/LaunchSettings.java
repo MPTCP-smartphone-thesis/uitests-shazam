@@ -12,7 +12,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private static final String ID_SHAZ_TAGGING = "com.shazam.android:id/tagging_place_holder";
 	private static final String ID_SHAZ_NEWS_FEED = "com.shazam.android:id/news_feed_list";
-	private static final int NB_TIMES = 2;
+	private static final int NB_TIMES = 3;
 
 	private void shazamIt() {
 		fetchNews();
