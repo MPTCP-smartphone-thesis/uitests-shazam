@@ -63,7 +63,9 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
-				Utils.openApp(this, "Shazam", "com.shazam.android"));
+				Utils.openApp(this, "Shazam",
+						"com.shazam.android",
+						"com.shazam.android.activities.SplashActivity"));
 		for (int i = 0; i < NB_TIMES; i++) {
 			shazamIt();
 		}
