@@ -12,7 +12,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private static final String ID_SHAZ_TAGGING = "com.shazam.android:id/tagging_place_holder";
 	private static final String ID_SHAZ_NEWS_FEED = "com.shazam.android:id/news_feed_list";
-	private static final int NB_TIMES = 3;
+	private static int NB_TIMES = 3;
 
 	private void shazamIt() {
 		fetchNews();
@@ -66,6 +66,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				Utils.openApp(this, "Shazam",
 						"com.shazam.android",
 						"com.shazam.android.activities.SplashActivity"));
+		NB_TIMES = Math.max(1, (int) (NB_TIMES * Utils.getMultTime(this)));
 		for (int i = 0; i < NB_TIMES; i++) {
 			shazamIt();
 		}
